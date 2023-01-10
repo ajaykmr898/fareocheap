@@ -860,3 +860,7 @@ a:hover {
   margin-left: auto;
   margin-right: 100px;
 }
+
+.btn-search {
+  max-width: 100%;
+}
