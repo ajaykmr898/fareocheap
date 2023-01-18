@@ -56,50 +56,46 @@
                                 <!-- product main tab content -->
                                 <div class="tab-content mt-3" id="myTabContent">
                                     <!-- flight search tab -->
-                                    <div class="tab-pane fade show active" id="flight-tab-pane" role="tabpanel"
-                                        aria-labelledby="flight-tab" tabindex="0">
+                                    <div class="tab-pane fade show active" id="flight-tab-pane" role="tabpanel" aria-labelledby="flight-tab" tabindex="0">
                                         <!-- flight multiple search tab -->
                                         <ul class="nav nav-pills cust-pills" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
+                                            <li class="nav-item navFormFields" role="presentation">
                                                 <button class="nav-link oneOrRound" id="pills-oneway-tab" data-bs-toggle="pill"
                                                     data-bs-target="#pills-oneway" type="button" role="tab"
                                                     aria-controls="pills-oneway" aria-selected="true">
-                                                    <span
-                                                        class="d-inline-block p-2 rounded-circle bg-white align-middle me-2"></span>
-                                                    One Way</button>
+                                                    <span class="d-inline-block p-2 rounded-circle bg-white align-middle me-2"></span>One Way
+                                                </button>
                                             </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link oneOrRound active" id="pills-Round-tab" data-bs-toggle="pill"
-                                                    data-bs-target="#pills-Round" type="button" role="tab"
-                                                    aria-controls="pills-Round" aria-selected="false">
-                                                    <span
-                                                        class="d-inline-block p-2 rounded-circle bg-white align-middle me-2"></span>
-                                                    Round Trip</button>
+                                            <li class="nav-item navFormFields" role="presentation">
+                                                <button class="nav-link oneOrRound active" id="pills-Round-tab" data-bs-toggle="pill" data-bs-target="#pills-Round" type="button" role="tab" aria-controls="pills-Round" aria-selected="false">
+                                                    <span class="d-inline-block p-2 rounded-circle bg-white align-middle me-2"></span>Round Trip
+                                                </button>
+                                            </li>
+                                            <li class="nav-item navFormFields" role="presentation">
+                                                <input class="form-control" id="email" placeholder="Your Email">
+                                            </li>
+                                            <li class="nav-item navFormFields" role="presentation">
+                                                <input class="form-control" id="phone" placeholder="Your Phone">
                                             </li>
                                         </ul>
                                         <div class="tab-content1" id="pills-tabContent">
-                                            <div class="tab-pane" id="pills-Round" role="tabpanel"
-                                                aria-labelledby="pills-Round-tab" tabindex="0">
+                                            <div class="tab-pane" id="pills-Round" role="tabpanel" aria-labelledby="pills-Round-tab" tabindex="0">
                                                 <!-- round trip  search -->
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="search-pan row mx-0 theme-border-radius">
                                                             <div class="col-12 col-lg-4 col-xl-2 ps-0 mb-2 mb-xl-0 pe-0 pe-lg-2">
                                                                 <div class="form-group">
-                                                                    <label for="exampleDataList" class="form-label">Depart
-                                                                        From</label>
-                                                                    <input class="form-control" list="datalistOptions"
-                                                                        id="exampleDataList1" placeholder="New York">
+                                                                    <label for="exampleDataList" class="form-label">Depart From</label>
+                                                                    <input class="form-control" list="datalistOptions" id="depFrom" placeholder="New York">
                                                                     <datalist id="datalistOptions">
                                                                     </datalist>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-lg-4 col-xl-2 ps-0 mb-2 mb-xl-0 pe-0 pe-lg-2">
                                                                 <div class="form-group">
-                                                                    <label for="exampleDataList2" class="form-label">Arrival
-                                                                        To</label>
-                                                                    <input class="form-control" list="datalistOptions"
-                                                                        id="exampleDataList2" placeholder="New Delhi">
+                                                                    <label for="exampleDataList2" class="form-label">Arrival To</label>
+                                                                    <input class="form-control" list="datalistOptions" id="arrTo" placeholder="New Delhi">
                                                                     <datalist id="datalistOptions">
                                                                     </datalist>
                                                                 </div>
@@ -107,11 +103,11 @@
                                                             <div class="col-12 col-lg-4 col-xl-3 ps-0 mb-2 mb-xl-0 pe-0 pe-lg-0 pe-xl-2">
                                                                 <div class="form-group oneOrRound1">
                                                                     <label class="form-label">Departure Date</label>
-                                                                    <input type="text" class="form-control" placeholder="Wed 2 Mar">
+                                                                    <input type="text" class="form-control" id="depDate" placeholder="Wed 2 Mar">
                                                                 </div>
                                                                 <div class="form-group oneOrRound2">
                                                                     <label class="form-label">Departure Date - Arrival Date</label>
-                                                                    <input type="text" class="form-control" placeholder="Wed 2 Mar  -  Fri 11 Apr">
+                                                                    <input type="text" class="form-control" id="depArrDate" placeholder="Wed 2 Mar  -  Fri 11 Apr">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-lg-6 col-xl-3 ps-0 mb-2 mb-lg-0 mb-xl-0 pe-0 pe-lg-2">
@@ -119,92 +115,29 @@
                                                                     <label class="form-label">Traveller's
                                                                     </label>
                                                                     <div class="dropdown" id="myDD2">
-                                                                        <button class="dropdown-toggle form-control"
-                                                                            type="button" id="travellerInfoOneway51"
-                                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            <span class="text-truncate">2 adults - 1
-                                                                                childeren - 1 Infants
+                                                                        <button class="dropdown-toggle form-control" type="button" id="travellerInfoOneway51" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            <span class="text-truncate">Passengers number
                                                                             </span>
+                                                                            <span class="passengersNum"></span>
                                                                         </button>
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="travellerInfoOneway51">
+                                                                        <div class="dropdown-menu" aria-labelledby="travellerInfoOneway51">
                                                                             <ul class="drop-rest">
                                                                                 <li>
-                                                                                    <div class="d-flex small">Adults
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="ms-auto input-group plus-minus-input">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="minus"
-                                                                                                data-field="onewayAdult">
-                                                                                                <i class="bi bi-dash"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <input class="input-group-field"
-                                                                                            type="number" name="onewayAdult"
-                                                                                            value="0">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="plus"
-                                                                                                data-field="onewayAdult">
-                                                                                                <i class="bi bi-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                    <div class="d-flex small">Adults</div>
+                                                                                    <div class="ms-auto input-group plus-minus-input">
+                                                                                        <input class="input-group-field passengers" type="number" id="adultNum" min="1" min="25" value="0">
                                                                                     </div>
                                                                                 </li>
                                                                                 <li>
-                                                                                    <div class="d-flex small">Child
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="ms-auto input-group plus-minus-input">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="minus"
-                                                                                                data-field="onewayChild">
-                                                                                                <i class="bi bi-dash"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <input class="input-group-field"
-                                                                                            type="number" name="onewayChild"
-                                                                                            value="0">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="plus"
-                                                                                                data-field="onewayChild">
-                                                                                                <i class="bi bi-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                    <div class="d-flex small">Child</div>
+                                                                                    <div class="ms-auto input-group plus-minus-input">
+                                                                                        <input class="input-group-field passengers" type="number" id="childNum" min="1" min="25" value="0">
                                                                                     </div>
                                                                                 </li>
                                                                                 <li>
-                                                                                    <div class="d-flex small">Infants
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="ms-auto input-group plus-minus-input">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="minus"
-                                                                                                data-field="onewayInfant">
-                                                                                                <i class="bi bi-dash"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <input class="input-group-field"
-                                                                                            type="number"
-                                                                                            name="onewayInfant" value="0">
-                                                                                        <div class="input-group-button">
-                                                                                            <button type="button"
-                                                                                                class="circle"
-                                                                                                data-quantity="plus"
-                                                                                                data-field="onewayInfant">
-                                                                                                <i class="bi bi-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                    <div class="d-flex small">Infants</div>
+                                                                                    <div class="ms-auto input-group plus-minus-input">
+                                                                                        <input class="input-group-field passengers" type="number" id="infanNumt" min="1" min="25" value="0">
                                                                                     </div>
                                                                                 </li>
                                                                             </ul>
@@ -222,19 +155,14 @@
                                                             <div class="d-flex flex-sm-row flex-column">
                                                                 <div class="me-2 mb-2 mb-lg-0">
                                                                     <div class="switch mode-switch">
-                                                                        <input type="checkbox" name="stop_mode" id="stop_mode"
-                                                                            value="1">
-                                                                        <label for="stop_mode" data-on="NonStop" data-off="Stop"
-                                                                            class="mode-switch-inner"></label>
+                                                                        <input type="checkbox" name="stop_mode" id="stop_mode" value="1">
+                                                                        <label for="stop_mode" data-on="NonStop" data-off="Stop" class="mode-switch-inner"></label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="me-2">
                                                                     <div class="switch mode-switch">
-                                                                        <input type="checkbox" name="class_mode" id="class_mode"
-                                                                            value="1">
-                                                                        <label for="class_mode" data-on="Premium"
-                                                                            data-off="Economy"
-                                                                            class="mode-switch-inner"></label>
+                                                                        <input type="checkbox" name="class_mode" id="class_mode" value="1">
+                                                                        <label for="class_mode" data-on="Premium" data-off="Economy" class="mode-switch-inner"></label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -451,6 +379,7 @@
         <!-- js file -->
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
         <script src="assets/js/loadData.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
     </body>

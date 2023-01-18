@@ -1,9 +1,7 @@
 // Scroll Top
 $(document).ready(function () {
-
     initializePage();
     scrollButton();
-    //sendMail();
 });
 
 function initializePage() {
@@ -15,7 +13,7 @@ function initializePage() {
     setDate();
 
     initializeFormFromTo();
-    initializeFormOneRound();
+    initializeFormOneRoundAndPassengersNumber();
     initializeEnquireNow();
     initializeContactUsEvent();
 }
@@ -1475,7 +1473,7 @@ function initializeFormFromTo() {
     $('#datalistOptions').append(content);
 }
 
-function initializeFormOneRound() {
+function initializeFormOneRoundAndPassengersNumber() {
     $('.oneOrRound1').hide();
     $('.oneOrRound').click( function(e) {
         e.preventDefault();
@@ -1488,12 +1486,87 @@ function initializeFormOneRound() {
             $('.oneOrRound2').show();
         }
     });
+    
+    $('.passengers').change(function(e) {
+        let content = '';
+        e.preventDefault();
+        content = parseInt($('#adultNum').val().trim()) + parseInt($('#childNum').val().trim()) + parseInt($('#infanNumt').val().trim());
+        $('.passengersNum').html('- ' + content);
+    });
 }
+
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+function isPhone(phone) {
+  var regex = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  return regex.test(phone);
+}
+
 
 function initializeEnquireNow() {
      $('.enquire-now').click( function(e) {
         e.preventDefault();
-        console.log('here');
+        let email = $('#email').val().trim();
+        let phone = $('#phone').val().trim();
+        let depFrom = $('#depFrom').val().trim();
+        let arrTo = $('#arrTo').val().trim();
+
+        let selectedOne = $('.oneOrRound1').is(":visible");
+        let depArrDate = '';
+        if (selectedOne) {
+            depArrDate = $('#depDate').val().trim();
+        } else {
+            depArrDate = $('#depArrDate').val().trim();
+        }
+
+        let adultNum = $('#adultNum').val().trim();
+        let childNum = $('#childNum').val().trim();
+        let infantNum = $('#infanNumt').val().trim();
+        let total = parseInt($('#adultNum').val().trim()) + parseInt($('#childNum').val().trim()) + parseInt($('#infanNumt').val().trim());
+
+        let classMode = $('#class_mode').prop('checked');
+        let stopMode = $('#stop_mode').prop('checked');
+        let classType = 'Economy'; 
+        if (classMode) {
+            classType = 'Premium';
+        }
+        let stopType = 'Stop';
+        if (stopMode) {
+            stopType = 'Non Stop';
+        }
+
+        if (isEmail(email) && isPhone(phone) && depFrom && arrTo && depArrDate && total > 0 && classType && stopType) {
+            swal(
+                "Are you sure?",
+                "Want to receive tickets prices within filled dates?",
+                 "warning", 
+                {
+                    cancel: true,
+                    buttons: {
+                        cancel: true,
+                        ok: {
+                            text: 'Ok'
+                        }
+                    }
+                }
+            ).then((result) => {
+                if (result === 'ok') {
+                    sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType);
+                }
+            });
+        } else {
+            swal(
+                "Form not complete",
+                "Please fill all the fields to proceed",
+                 "warning", 
+                {
+                    button: "Ok"
+                }
+            );
+        }
     });
 }
 
@@ -1740,27 +1813,56 @@ function scrollButton() {
     });
 }
 
-function sendMail() {
-    console.log('here');
+function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType) {
     var data = {
         service_id: 'service_anfkdec',
         template_id: 'template_px4i2lf',
         user_id: 'm9YvzMj0HDLG1qHK_',
         template_params: {
-            'to_name': 'James',
-            'from_name': 'Max'
+            email,
+            phone,
+            depFrom,
+            arrTo,
+            depArrDate,
+            adultNum,
+            childNum,
+            infantNum,
+            stopType,
+            classType
         }
     };
-     
-    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    console.log(data);
+
+    /*$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
         type: 'POST',
         data: JSON.stringify(data),
         contentType: 'application/json'
     }).done(function() {
-        alert('Your mail is sent!');
+        swal(
+            "Thanks - Request sent",
+            "Our customer service will reply to you as soon as possible",
+             "success", 
+            {
+                button: "Ok"
+            }
+        ).then((result) => {
+            let elements = document.getElementsByTagName("input");
+            for (let ii=0; ii < elements.length; ii++) {
+              if (elements[ii].type == "text") {
+                elements[ii].value = "";
+              }
+            }
+        });
     }).fail(function(error) {
-        alert('Oops... ' + JSON.stringify(error));
-    });
+        swal(
+            "Oops...",
+            "There was a problem with our services. Retry later.",
+             "error", 
+            {
+                button: "Close"
+            }
+        );
+    });*/
 }
 
 function defaultFunc() {

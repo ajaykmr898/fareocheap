@@ -864,3 +864,7 @@ a:hover {
 .btn-search {
   max-width: 100%;
 }
+
+.navFormFields {
+  margin: 0 0 10px 50px; 
+}
