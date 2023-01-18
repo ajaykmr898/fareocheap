@@ -868,3 +868,12 @@ a:hover {
 .navFormFields {
   margin: 0 0 10px 50px; 
 }
+
+.navFormFieldsOr {
+  margin: 0 0 10px 50px; 
+  color: white;
+}
+
+.navFormFieldsPhone {
+  color: white;
+}

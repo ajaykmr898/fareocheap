@@ -2,6 +2,9 @@
 $(document).ready(function () {
     initializePage();
     scrollButton();
+    datepicker('#depDate1');
+    datepicker('#depDate2');
+    datepicker('#arrDate2');
 });
 
 function initializePage() {
@@ -1515,11 +1518,14 @@ function initializeEnquireNow() {
         let arrTo = $('#arrTo').val().trim();
 
         let selectedOne = $('.oneOrRound1').is(":visible");
+        let chose = '';
         let depArrDate = '';
         if (selectedOne) {
-            depArrDate = $('#depDate').val().trim();
+            chose = 'One Way';
+            depArrDate = $('#depDate1').val().trim();
         } else {
-            depArrDate = $('#depArrDate').val().trim();
+            chose = 'Round Trip';
+            depArrDate = $('#depDate2').val().trim() + ' - ' + $('#arrDate2').val().trim();
         }
 
         let adultNum = $('#adultNum').val().trim();
@@ -1538,7 +1544,9 @@ function initializeEnquireNow() {
             stopType = 'Non Stop';
         }
 
-        if (isEmail(email) && isPhone(phone) && depFrom && arrTo && depArrDate && total > 0 && classType && stopType) {
+        if ((isEmail(email) || isPhone(phone)) && depFrom && arrTo && 
+            ((selectedOne && depArrDate.length > 10) || (!selectedOne && depArrDate.length > 20)) &&
+            total > 0 && classType && stopType) {
             swal(
                 "Are you sure?",
                 "Want to receive tickets prices within filled dates?",
@@ -1554,7 +1562,15 @@ function initializeEnquireNow() {
                 }
             ).then((result) => {
                 if (result === 'ok') {
-                    sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType);
+                    sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, chose);
+                    swal({
+                        title: "Please wait...",
+                        text: "while sending your request to our customer service",
+                        icon: "warning",
+                        closeOnEsc: false,
+                        closeOnClickOutside: false,
+                        buttons: false,
+                    });
                 }
             });
         } else {
@@ -1813,7 +1829,7 @@ function scrollButton() {
     });
 }
 
-function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType) {
+function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, oneWayRound) {
     var data = {
         service_id: 'service_anfkdec',
         template_id: 'template_px4i2lf',
@@ -1828,7 +1844,8 @@ function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, 
             childNum,
             infantNum,
             stopType,
-            classType
+            classType,
+            oneWayRound
         }
     };
     console.log(data);

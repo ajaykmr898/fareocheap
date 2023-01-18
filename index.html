@@ -10,6 +10,8 @@
         <link rel="icon" type="image/png" sizes="80x80" href="assets/images/favicon.png">
         <!-- Main CSS -->
         <link href="assets/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css"> -->
+
     </head>
 
     <body>
@@ -71,10 +73,15 @@
                                                     <span class="d-inline-block p-2 rounded-circle bg-white align-middle me-2"></span>Round Trip
                                                 </button>
                                             </li>
-                                            <li class="nav-item navFormFields" role="presentation">
+                                            <li class="nav-item navFormFields navFormFieldsOr" role="presentation">
+                                                <label class="form-label">Email</label>
                                                 <input class="form-control" id="email" placeholder="Your Email">
                                             </li>
+                                            <li class="navFormFieldsOr" role="presentation">
+                                                <span>OR</span>
+                                            </li>
                                             <li class="nav-item navFormFields" role="presentation">
+                                                <label class="form-label navFormFieldsPhone">Phone</label>
                                                 <input class="form-control" id="phone" placeholder="Your Phone">
                                             </li>
                                         </ul>
@@ -103,11 +110,12 @@
                                                             <div class="col-12 col-lg-4 col-xl-3 ps-0 mb-2 mb-xl-0 pe-0 pe-lg-0 pe-xl-2">
                                                                 <div class="form-group oneOrRound1">
                                                                     <label class="form-label">Departure Date</label>
-                                                                    <input type="text" class="form-control" id="depDate" placeholder="Wed 2 Mar">
+                                                                    <input type="text" class="form-control" id="depDate1" placeholder="Wed 2 Mar">
                                                                 </div>
                                                                 <div class="form-group oneOrRound2">
                                                                     <label class="form-label">Departure Date - Arrival Date</label>
-                                                                    <input type="text" class="form-control" id="depArrDate" placeholder="Wed 2 Mar  -  Fri 11 Apr">
+                                                                    <input type="text" class="form-control" id="depDate2" placeholder="choose date">
+                                                                    <input type="text" class="form-control" id="arrDate2" placeholder="choose date">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-lg-6 col-xl-3 ps-0 mb-2 mb-lg-0 mb-xl-0 pe-0 pe-lg-2">
@@ -380,6 +388,7 @@
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/js-datepicker"></script>
         <script src="assets/js/loadData.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
     </body>
