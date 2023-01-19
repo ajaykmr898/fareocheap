@@ -1,4 +1,4 @@
-let airports = [
+var airports = [
 	'"AZR - Touat-Cheikh Sidi Mohamed Belkebir Airport"',
 	'"ALG - Houari Boumediene Airport"',
 	'"AAE - Rabah Bitat Airport"',
