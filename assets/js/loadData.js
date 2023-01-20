@@ -184,19 +184,19 @@ function setRecomended() {
 }
 
 function setOffers() {
-    let data = [{a: 'Things to do on trip', b: 'Learn More', c: 'product01'}, {a: 'Enjoy Summer Deals', b: 'View Deal', c: 'product02'}];
+    let data = [
+        {a: 'Reasonable Fares', b: 'assets/images/bar-chart.png'},
+        {a: 'Special Support', b:'assets/images/support.png'},
+        {a: 'Happy Customers', b: 'assets/images/satisfied.png'},
+    ];
     let content = '';
     data.map(el => {
-        content += `
-        <div class="col-12 col-md-6 mb-3 mb-md-0 overflow-hidden hoverShine">
-            <div class="box ${el.c}">
-                <div class="content">
-                    <p class="fs-1 theme-heading theme-text-white mb-4">${el.a}</p>
-                    <div class="custom-button">
-                        <a href="javascript:void(0)" class="btn btn-shop small">
-                            ${el.b}
-                            <i class="bi bi-arrow-up-right fs-6 ms-2"></i>
-                        </a>
+        content += `<div class="col-12 col-md-4 mb-3 mb-md-0 overflow-hidden hoverShine">
+            <div class="p-3 theme-border-radius border whyBookBox">
+                <div class="row justify-content-between align-items-center">
+                    <div class="content">
+                        <img src=${el.b} class="img-fluid whyBookBoxImage" alt="flight-destination" title="flight-destination">
+                        <p class="fs-1 theme-heading theme-text-blue mb-3 whyBookBoxText">${el.a}</p>
                     </div>
                 </div>
             </div>

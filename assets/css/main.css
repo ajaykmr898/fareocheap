@@ -877,3 +877,32 @@ a:hover {
 .navFormFieldsPhone {
   color: white;
 }
+
+.contactImage {
+  width: 100%;
+  height: auto !important;
+  border-radius: 100px;
+}
+
+.contactText {
+  margin-top: 15px;
+}
+
+.whyBookBox {
+  background-color: #175873 !important;
+}
+
+.special-offers .box {
+  align-items: flex-end !important;
+  height: 250px;
+}
+
+.whyBookBoxText {
+  text-align: center;
+  color: white;
+}
+
+.whyBookBoxImage {
+  margin-left: 28%;
+}
+

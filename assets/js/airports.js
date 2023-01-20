@@ -1279,6 +1279,7 @@ var airports = [
 	'"KUF - Samara Kurumoch Airport"',
 	'"GSV - Saratov Gagarin Airport"',
 	'"AER - Sochi International Airport"',
+	'"AEH - Abéché Airport"',
 	'"STW - Stavropol Shpakovskoye Airport"',
 	'"SGC - Surgut International Airport"',
 	'"SCW - Syktyvkar Airport"',
