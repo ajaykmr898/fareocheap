@@ -202,6 +202,45 @@ function setOffers() {
     $('.offers-section').append(content);
 }
 
+function setRoutes() {
+    let data = [
+        {a: 'assets/images/destinations/destination01.jpg', b: 'Dubai', c: 'United Arab Emirates'},
+        {a: 'assets/images/destinations/destination02.jpg', b: 'Toronto', c: 'Canada'},
+        {a: 'assets/images/destinations/destination03.jpg', b: 'Istanbul', c: 'Turkey'},
+        {a: 'assets/images/destinations/destination04.jpg', b: 'Rome', c: 'Italy'},
+        {a: 'assets/images/destinations/destination05.jpg', b: 'Paris', c: 'France'},
+        {a: 'assets/images/destinations/destination06.jpg', b: 'Udaipur', c: 'India'},
+        {a: 'assets/images/destinations/destination07.jpg', b: 'Melbourne', c: 'Australia'},
+        {a: 'assets/images/destinations/destination08.jpg', b: 'Auckland', c: 'New Zeland'},
+    ];
+    let content = '';
+    data.map(el => {
+        content += `<div class="col-12 col-lg-3">
+        <div class="theme-bg-white mb-5">
+            <div class="row g-0 align-items-center">
+                <div class="col-4">
+                    <img src=${el.a} class="destinationImages" alt="flight-destination" title="flight-destination">
+                </div>
+                <div class="col-8">
+                    <div
+                        class="mt-2 mt-xxl-0 ps-3 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-column">
+                            <span class="d-flex fs-6">${el.b}</span>
+                            <span class="d-flex small fw-normal theme-text-accent-one">${el.c}</span>
+                        </div>
+                        <div class="d-flex">
+                            <a href="#" class="link-btn"><span><i class="bi bi-arrow-up-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+    });
+    $('.destination-section').append(content);
+    
+}
+
 function setDestinations() {
     let data = {
         popularLastMinute: {
@@ -326,88 +365,6 @@ function getLinks(classBox, data) {
         content += `<li class="liLinks"><a class="links" href="#">${el}</a></li>`;
     });
     $(classBox).append(content);
-}
-
-function setRoutes() {
-    let data = [
-        {a: 'assets/images/icons/1.png', b: '14:00', c: '4h 05m- Nonstop', d: 'LHR', e: 'assets/images/icons/2.png', f: '15:00', g: 'ABD', h: '2h 00m- Nonstop', i: '17:00', j: 'AEH', k: 'US$934', l: '16 deals', m: 'View Deal'}, 
-        {a: 'assets/images/icons/3.png', b: '14:00', c: '4h 05m- Nonstop', d: 'LHR', e: 'assets/images/icons/4.png', f: '15:00', g: 'ABD', h: '2h 00m- Nonstop', i: '17:00', j: 'AEH', k: 'US$934', l: '16 deals', m: 'View Deal'}, 
-        {a: 'assets/images/icons/5.png', b: '14:00', c: '4h 05m- Nonstop', d: 'LHR', e: 'assets/images/icons/1.png', f: '15:00', g: 'ABD', h: '2h 00m- Nonstop', i: '17:00', j: 'AEH', k: 'US$934', l: '16 deals', m: 'View Deal'}, 
-        {a: 'assets/images/icons/2.png', b: '14:00', c: '4h 05m- Nonstop', d: 'LHR', e: 'assets/images/icons/3.png', f: '15:00', g: 'ABD', h: '2h 00m- Nonstop', i: '17:00', j: 'AEH', k: 'US$934', l: '16 deals', m: 'View Deal'}, 
-    ];
-    let content = '';
-    data.map(el => {
-        content += `<div class="col-12 mb-3">
-        <div class="p-3 theme-border-radius border">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-xl-4 col-lg-6">
-                    <div class="row align-items-center">
-                        <div class="col-sm-auto">
-                            <img class="size-40" src=${el.a} alt="image">
-                        </div>
-                        <div class="col">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="fs-6">${el.b}</div>
-                                    <div class="small theme-text-accent-one">DEL</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="flightLine">
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div class="small theme-text-accent-two">${el.c}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="fs-6">22:00</div>
-                                    <div class="small theme-text-accent-one">${el.d}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 my-5 my-lg-0">
-                    <div class="row align-items-center">
-                        <div class="col-sm-auto">
-                            <img class="size-40" src=${el.e} alt="image">
-                        </div>
-                        <div class="col">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="fs-6">${el.f}</div>
-                                    <div class="small theme-text-accent-one">${el.g}</div>
-                                </div>
-                                <div class="col text-center">
-                                    <div class="flightLine">
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div class="small theme-text-accent-two">${el.h}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="fs-6">${el.i}</div>
-                                    <div class="small theme-text-accent-one">${el.j}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="d-flex justify-content-between">
-                        <div class="me-4">
-                            <div class="fs-6">${el.k}</div>
-                            <div class="small theme-text-accent-one">${el.l}</div>
-                        </div>
-                        <a href="#" class="theme-btn-outline p-2">
-                            ${el.m} <i class="bi bi-arrow-up-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>`;
-    });
-    //$('.routes-section').append(content);
 }
 
 function setTestimonials() {
