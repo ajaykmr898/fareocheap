@@ -906,3 +906,26 @@ a:hover {
   margin-left: 28%;
 }
 
+.destinationImages {
+  width: 100%;
+  border-radius:50%;
+  height: 120px;
+}
+
+.links {
+  color: #000;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.liLinks {
+  margin: 10px 0 0 10px;
+}
+
+.flightsTabs {
+  color: #175873;
+}
+
+.nav-tabs {
+  --bs-nav-tabs-link-active-color: #0393d2;
+}
