@@ -5,6 +5,7 @@ $(document).ready(function () {
     datepicker('#depDate1');
     datepicker('#depDate2');
     datepicker('#arrDate2');
+    //promptAskMailPhone();
 });
 
 function initializePage() {
@@ -47,7 +48,7 @@ function initializeFormOneRoundAndPassengersNumber() {
         let content = '';
         e.preventDefault();
         content = parseInt($('#adultNum').val().trim()) + parseInt($('#childNum').val().trim()) + parseInt($('#infanNumt').val().trim());
-        $('.passengersNum').html('- ' + content);
+        $('.passengersNum').html('• ' + content);
     });
 }
 
@@ -469,4 +470,32 @@ function defaultFunc() {
         </div>`;
     });
     $('.offers-section').append(content);
+}
+
+function promptAskMailPhone() {
+    swal(
+        "Your Email or Phone number",
+        "Please insert a contact so we can reach out to you",
+        "warning", 
+        { content: "input" }
+    ).then((result) => {
+        if ((isEmail(result) || isPhone(result))) {
+            swal({
+                title: "Please wait...",
+                text: "while sending your request to our customer service",
+                icon: "warning",
+                closeOnEsc: false,
+                closeOnClickOutside: false,
+                buttons: false,
+            });
+        } else {
+            swal({
+                title: "Phone/Email not valid",
+                text: "Please insert a valid contact method",
+                icon: "warning",
+                closeOnEsc: true,
+                closeOnClickOutside: true,
+            });
+        }
+    });
 }

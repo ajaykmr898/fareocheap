@@ -927,3 +927,7 @@ a:hover {
 .nav-tabs {
   --bs-nav-tabs-link-active-color: #0393d2;
 }
+
+.date-disabled {
+    background-color: #fff !important;
+}
