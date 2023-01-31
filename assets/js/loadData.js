@@ -429,7 +429,7 @@ function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, 
     };
     console.log(data);
 
-    /*$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
         type: 'POST',
         data: JSON.stringify(data),
         contentType: 'application/json'
@@ -458,7 +458,7 @@ function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, 
                 button: "Close"
             }
         );
-    });*/
+    });
 }
 
 function defaultFunc() {
