@@ -66,8 +66,8 @@ function isPhone(phone) {
 function initializeEnquireNow() {
      $('.enquire-now').click( function(e) {
         e.preventDefault();
-        let email = $('#email').val().trim();
-        let phone = $('#phone').val().trim();
+        let emailOrPhone = $('#email').val().trim();
+        //let phone = $('#phone').val().trim();
         let depFrom = $('#depFrom').val().trim();
         let arrTo = $('#arrTo').val().trim();
 
@@ -98,7 +98,7 @@ function initializeEnquireNow() {
             stopType = 'Non Stop';
         }
 
-        if ((isEmail(email) || isPhone(phone)) && depFrom && arrTo && 
+        if ((isEmail(emailOrPhone) || isPhone(emailOrPhone)) && depFrom && arrTo && 
             ((selectedOne && depArrDate.length > 10) || (!selectedOne && depArrDate.length > 20)) &&
             total > 0 && classType && stopType) {
             swal(
@@ -116,7 +116,7 @@ function initializeEnquireNow() {
                 }
             ).then((result) => {
                 if (result === 'ok') {
-                    sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, chose);
+                    sendMail(emailOrPhone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, chose);
                     swal({
                         title: "Please wait...",
                         text: "while sending your request to our customer service",
@@ -420,12 +420,12 @@ function scrollButton() {
     });
 }
 
-function sendMail(email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, oneWayRound) {
+function sendMail(emailOrPhone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, oneWayRound) {
     var data = {
         service_id: 'service_anfkdec',
         template_id: 'template_px4i2lf',
         user_id: 'm9YvzMj0HDLG1qHK_',
-        template_params: { email, phone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, oneWayRound }
+        template_params: { emailOrPhone, depFrom, arrTo, depArrDate, adultNum, childNum, infantNum, stopType, classType, oneWayRound }
     };
     console.log(data);
 
